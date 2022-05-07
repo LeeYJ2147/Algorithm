@@ -1,4 +1,3 @@
-//상향식 알고리즘
 #include <stdio.h>
 #include <math.h>
 
@@ -20,10 +19,10 @@ int main()
 }
 
 
-//하향식 알고리즘
 /*
-#include <cstdio>
-#include <cmath>
+//하향식 알고리즘
+//#include <cstdio>
+//#include <cmath>
 
 int DT[50001];
 

@@ -1,7 +1,7 @@
 // 하향식 설계
 #include <cstdio>
 
-int n, w, DT[102][10002], w[102], v[102];
+int n, w, DT[102][10002], W[102], v[102];
 
 int max(int a, int b) {return a>b?a:b;}
 
@@ -9,14 +9,14 @@ int f(int i, int r)
 {
     if(DT[i][r] != -1) return DT[i][r];
     if(i == n+1) return DT[i][r] = 0;
-    else if(r < w[i]) return DT[i][r] = f(i+1, r);
-    else return DT[i][r] = max(f(i+1, r), f(i+1, r-w[i])+v[i]);
+    else if(r < W[i]) return DT[i][r] = f(i+1, r);
+    else return DT[i][r] = max(f(i+1, r), f(i+1, r-W[i])+v[i]);
 }
 
 int main()
 {
     scanf("%d %d", &n, &w);
-    for(int i=1; i<n; i++) scanf("%d %d", &w[i], &v[i]);
+    for(int i=1; i<n; i++) scanf("%d %d", &W[i], &v[i]);
     for(int i=0; i<=100; i++) for(int j=0; j<=10000; j++) DT[i][j] = -1;
     printf("%d", f(1, w));
     return 0;

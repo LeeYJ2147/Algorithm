@@ -6,7 +6,7 @@ int n, M;
 int m[101], c[101];
 //m은 각 앱의 바이트 수, c는 비활성화 비용
 int check[101];
-//check는 반복할 때 왔는지 확인, min은 최소비용-답-
+//check는 반복할 때 왔는지 확인
 int byte=0;
 
 int min(int a, int b) { return a<b ? a:b;}
@@ -26,9 +26,9 @@ int solve(int i, int r)
         else return MAXV;
     }
     else if(r < 0)
-        return f(i-1, r);
+        return solve(i-1, r);
     else
-        return min(f(i-1, r), f(i-1, r-m[i]) + c[i]);
+        return min(solve(i-1, r), solve(i-1, r-m[i]) + c[i]);
 }
 
 int main()
