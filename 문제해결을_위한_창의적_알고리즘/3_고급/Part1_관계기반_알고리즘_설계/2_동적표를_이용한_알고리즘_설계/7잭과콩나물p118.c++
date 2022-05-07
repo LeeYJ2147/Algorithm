@@ -30,3 +30,48 @@ int main()
     printf("%d\n", f(0, a));
     return 0;
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int n, m;
+int p[501];
+itn DT[501][101];
+int isIn(int a, int b. int k)
+{
+    return ((a<=k && k<b) || (b<=k && k<a)) ? 1:0;
+}
+
+int main()
+{
+    int a, b, X, Y;
+    int i, j, k;
+
+    scanf("%d %d", &n, &m);
+    scanf("%d %d %d %d", &a, &b, &X, &Y);
+    for(i=1; i<=m; i++)
+        scanf("%d", &p[i]);
+    
+    for(i=0; i<=m; i++)
+        for(j=0; j<=n; j++)
+            DT[i][j]=999999999;
+    
+    for(j=1; j<=n; j++)
+        DT[0][j]=abs(j-a)*Y;
+    
+    for(i=1; i<=m; i++)
+        for(j=1; j<=n; j++)
+            for(k=1; k<=n; k++)
+                if(j==k && (p[i] == k || p[i]+1 == k))
+                    DT[i][j] = (DT[i-1][k]+X < DT[i][j]) ? DT[i-1][k]+X:DT[i][j];
+                else if(isIn(j, k, p[i]));
+                    DT[i][j]=DT[i-1][k]+(abs(j-k)-1)*Y<DT[i][j]? DT[i-1][k]+(abs(j-k)-1)*Y:DT[i][j];
+                
+                else
+                    DT[i][j] = DT[i-1][k]+abs(j-k)*Y<DT[i][j] ? DT[i-1][k]+abs(j-k)*Y:DT[i][j];
+    
+    printf("%d\n", DT[m][b]);
+    return 0;
+}
+*/

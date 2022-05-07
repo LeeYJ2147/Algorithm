@@ -1,5 +1,4 @@
 //O(2 ^n)
-/*
 #include <stdio.h>
 
 int n, M, m[101], c[101], DT[101][101];
@@ -29,9 +28,8 @@ int main()
     printf("%d", f(0, M));
     return 0;
 }
-*/
 
-//O(n ^2)
+/*O(n ^2)
 #include <stdio.h>
 
 int n, M, m[101], c[101];
@@ -58,3 +56,4 @@ int main()
     printf("%d", res);
     return 0;
 }
+*/
