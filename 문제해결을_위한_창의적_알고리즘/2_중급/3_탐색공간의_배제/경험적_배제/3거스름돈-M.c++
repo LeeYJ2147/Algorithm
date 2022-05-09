@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 int m, n, v[11], min=0x7fffffff, count, howmany;
@@ -38,6 +39,10 @@ int main()
     printf("%d\nI visited : %d\n", count, howmany);
     return 0;
 }
+*/
+
+
+
 /*현재까지의 사용한 동전의 수 > 지금까지 구해둔 최소 동전의 수
 #include <stdio.h>
 
@@ -67,18 +72,18 @@ int main()
 }
 */
 
-/*단순탐욕법 추가
+//단순탐욕법 추가
 #include <stdio.h>
 
 int m, n, coin[10], ans=987654321;
-//int counter;
+int counter;
 
 void greedy_ans(int mon)
 {
     ans = 0;
     while(mon)
     {
-        for(int i=n-1, i>=0; i--)
+        for(int i=n-1; i>=0; i--)
         {
             ans+= mon/coin[i];
             mon%=coin[i];
@@ -108,7 +113,6 @@ int main()
     greedy_ans(m);
     solve(0, 0);
     printf("%d\n", ans);
-    // printf("탐색한 정점의 수 %d\n", counter);
+    printf("탐색한 정점의 수 %d\n", counter);
     return 0;
 }
-*/
