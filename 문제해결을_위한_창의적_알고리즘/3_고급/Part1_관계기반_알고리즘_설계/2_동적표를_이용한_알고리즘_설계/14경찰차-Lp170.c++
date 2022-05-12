@@ -38,17 +38,14 @@ int main()
 #include <cstdio>
 #include <cstring>
 #define INF 0x3f3f3f
-
 int E[1010][2], n, m, ans=INF, DT[1100][1100];
 
 int min(int a, int b){ return a>b ? b:a;}
 int abs(int a){ return a>0 ? a:-a;}
-
 int dist(int a, int b)
 {
     return abs(E[a][0]-E[b][0])+abs(E[a][1]-E[b][1]);
 }
-
 int main()
 {
     scanf("%d %d", &n, &m);
@@ -57,24 +54,24 @@ int main()
         scanf("%d %d", &E[i][0], &E[i][1]);
     memset(DT, 0x3f, sizeof(DT)), DT[0][1]=0;
     for(int i=0; i<m+2; i++)
-    for(int j=1; j<m+2; j++)
-    {
-        if(i==j) DT[i][j]==INF;
-        else if(i>j)
+        for(int j=1; j<m+2; j++)
         {
-        if(i-1>j) DT[i][j]=DT[i-1][j]+dist(i-1,i);
-        else for(int k=0; k<j; k++)
-            DT[i][j]=min(DT[i][j],DT[k][j]+dist(k,i));
+            if(i==j) DT[i][j]==INF;
+            else if(i>j)
+            {
+                if(i-1>j) DT[i][j]=DT[i-1][j]+dist(i-1,i);
+                else for(int k=0; k<j; k++)
+                    DT[i][j]=min(DT[i][j],DT[k][j]+dist(k,i));
+            }
+            else
+            {
+                if(j-1>i) DT[i][j]= DT[i][j-1]+dist(j-1,j);
+                else for(int k=1; k<i; k++)
+                    DT[i][j]=min(DT[i][j],DT[i][k]+dist(k,j));
+            }
         }
-        else
-        {
-        if(j-1>i) DT[i][j]= DT[i][j-1]+dist(j-1,j);
-        else for(int k=1; k<i; k++)
-            DT[i][j]=min(DT[i][j],DT[i][k]+dist(k,j));
-        }
-    }
     for(int i=0; i<m+2; i++)
-    ans = min(ans, min(DT[i][m+1], DT[m+1][i]));
+        ans = min(ans, min(DT[i][m+1], DT[m+1][i]));
     printf("%d\n", ans);
     return 0
 }
