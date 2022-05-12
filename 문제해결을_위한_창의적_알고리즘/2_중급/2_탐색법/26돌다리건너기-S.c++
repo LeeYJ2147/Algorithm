@@ -46,7 +46,7 @@ int f(int s, int n, int rp)
     }
     if(s==2)
     {
-        for(i=0; b2[i] != '\0'; i++)
+        for(i=n; b2[i] != '\0'; i++)
             if(b2[i] == r[rp])
                 c+=f(1, i+1, rp+1);
     }
